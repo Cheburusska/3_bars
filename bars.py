@@ -1,15 +1,15 @@
 import json
 
-json_path = 'bars.json'
+json_path = 'bars.json' #file can be taken here: http://data.mos.ru/opendata/7710881420-bary
 
 
-def load_data(filepath):
+def load_data(filepath): #takes json and returns list of dictionaries as data
     with open(filepath, encoding="utf8") as json_file:
         data = json.load(json_file)
         return data
 
 
-def get_biggest_bar(data):
+def get_biggest_bar(data): #takes data and returns name and size of the biggest bar
     seats = data[0]['Cells']['SeatsCount']
     name = ''
     for bar in data:
@@ -20,7 +20,7 @@ def get_biggest_bar(data):
     print('Количество мест в нем: %s' % seats)
 
 
-def get_smallest_bar(data):
+def get_smallest_bar(data): #takes data and returns name and size of the smallest bar
     seats = data[0]['Cells']['SeatsCount']
     name = data[0]['Cells']['Name']
     for bar in data:
@@ -31,7 +31,7 @@ def get_smallest_bar(data):
     print('Количество мест в нем: %s' % seats)
 
 
-def get_closest_bar(data, longitude, latitude):
+def get_closest_bar(data, longitude, latitude): #takes data, asks coordinates from user and returns closest bar
     x = data[0]['Cells']['geoData']['coordinates'][1]
     y = data[0]['Cells']['geoData']['coordinates'][0]
     name = data[0]['Cells']['Name']
