@@ -1,4 +1,5 @@
 # 3_bars
+Program takes from user json file with the list of Moscow pubs, and returns the most big, most small (by number of places) and most close to the user. 
 
 Inside viriable json_path you shoud put path to your json_file, for example:
 json_path = 'bars.json'
